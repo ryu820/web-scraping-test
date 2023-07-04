@@ -24,14 +24,15 @@ export class AppService {
       const propertyList = [];
 
       document.querySelectorAll('.imageProduct_item__KZB_F').forEach((z) => {
-        const tempImgList = [];
-
+        let tempImgList: string;
+        //이미지뽑아오기
         z.querySelectorAll('.imageProduct_thumbnail__Szi5F').forEach((x) => {
           const imgElement = x.querySelector('span img');
           if (imgElement instanceof HTMLImageElement && imgElement.src) {
-            tempImgList.push(imgElement.src);
+            tempImgList = imgElement.src;
           }
         });
+        //랭크뽑아오기
         const element = z
           .querySelector('.imageProduct_rank__lEppJ')
           .textContent.trim();
